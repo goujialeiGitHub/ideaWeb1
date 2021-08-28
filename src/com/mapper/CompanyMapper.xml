@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.ICompanyMapper">
+<!-- 查询所有 -->
+<select id="findAll" resultType="com.po.Company">
+select * from company
+</select>
+<!-- 添加公司  -->
+<insert id="save" parameterType="com.po.Company">
+insert into company(cname) values(#{cname})
+</insert>
+<!-- 查询单个 -->
+<select id="findById" parameterType="Integer" resultType="com.po.Company">
+select * from company where cid=#{cid}
+</select>
+<!-- 修改 -->
+<update id="update" parameterType="com.po.Company">
+update company set cname=#{cname} where cid=#{cid}
+</update>
+</mapper>
